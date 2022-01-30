@@ -54,10 +54,10 @@ class Training:
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
         return InfoMessage(self.__str__(),
-                            self.duration,
-                            self.get_distance(),
-                            self.get_mean_speed(),
-                            self.get_spent_calories())
+                           self.duration,
+                           self.get_distance(),
+                           self.get_mean_speed(),
+                           self.get_spent_calories())
 
     def __str__(self) -> str:
         '''Название класса.'''
@@ -97,8 +97,7 @@ class SportsWalking(Training):
         return ((coeff_calorie_1 * self.weight
                  + (self.get_mean_speed()**2 // self.height)
                  * coeff_calorie_2 * self.weight)
-                 * self.duration
-                 * minutes_in_hour)
+                 * self.duration * minutes_in_hour)
 
 
 class Swimming(Training):
@@ -124,8 +123,8 @@ class Swimming(Training):
     def get_spent_calories(self) -> float:
         coeff_calorie_1: float = 1.1
         coeff_calorie_2: float = 2
-        return ((self.get_mean_speed() + coeff_calorie_1) 
-                 * coeff_calorie_2 * self.weight)
+        return ((self.get_mean_speed() + coeff_calorie_1)
+                * coeff_calorie_2 * self.weight)
 
 
 def read_package(workout_type: str,
@@ -139,6 +138,7 @@ def read_package(workout_type: str,
         'WLK': SportsWalking,
     }
     return training_types[workout_type](*data)
+
 
 def main(training: Training) -> None:
     """Главная функция."""
