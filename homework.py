@@ -95,9 +95,9 @@ class SportsWalking(Training):
         coeff_calorie_2: float = 0.029
         minutes_in_hour: int = 60
         return ((coeff_calorie_1 * self.weight
-                 + (self.get_mean_speed()**2 // self.height)
-                 * coeff_calorie_2 * self.weight)
-                 * self.duration * minutes_in_hour)
+                + (self.get_mean_speed()**2 // self.height)
+                * coeff_calorie_2 * self.weight)
+                * self.duration * minutes_in_hour)
 
 
 class Swimming(Training):
